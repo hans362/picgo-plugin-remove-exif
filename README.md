@@ -19,5 +19,5 @@ Remove EXIF data before uploading
 
 ### License 许可证
 
-[MIT License](https://github.com/wayjam/picgo-plugin-s3/blob/master/LICENSE).
+[MIT License](https://github.com/hans362/picgo-plugin-remove-exif/blob/master/LICENSE).
 
