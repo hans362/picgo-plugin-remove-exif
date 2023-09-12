@@ -1,11 +1,15 @@
 const sharp = require('sharp')
 
+const imageFileExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.tiff', '.gif', '.svg']
+
 const handle = async (ctx) => {
   ctx.log.info('**** Starting to remove EXIF data ****')
   const jobs = ctx.output.map(async outputi => {
     try {
-      let b = outputi.buffer
-      outputi.buffer = await sharp(b).toBuffer()
+      if (imageFileExtensions.includes(outputi.ext.toLowerCase())) {
+        let b = outputi.buffer
+        outputi.buffer = await sharp(b).toBuffer()
+      }
       return outputi
     } catch (err) {
       ctx.emit('notification', {
