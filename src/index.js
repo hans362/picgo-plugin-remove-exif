@@ -6,7 +6,7 @@ const handle = async (ctx) => {
   ctx.log.info('**** Starting to remove EXIF data ****')
   const jobs = ctx.output.map(async outputi => {
     try {
-      if (imageFileExtensions.includes(outputi.ext.toLowerCase())) {
+      if (imageFileExtensions.includes(outputi.extname.toLowerCase())) {
         let b = outputi.buffer
         outputi.buffer = await sharp(b).toBuffer()
       }
